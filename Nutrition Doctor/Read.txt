@@ -1,1 +1,52 @@
+## Gemini Health App
 
+The Gemini Health App is a Streamlit web application designed to analyze food items from an image, calculate their total calories, and provide detailed nutritional information. This app utilizes the Google Gemini Pro Vision API from `google.generativeai` to process the image and generate a comprehensive analysis.
+
+### How It Works
+
+1. Gemini Pro Vision API Integration:
+   - The app integrates the Gemini Pro Vision model using the `genai` library to analyze images of food items.
+   - An API key, securely stored in a `.env` file and loaded using `dotenv`, configures access to the Gemini Pro Vision API.
+
+2. Image Input:
+   - Users can upload an image of food items using the file uploader.
+   - The uploaded image is displayed using `PIL` (Python Imaging Library) to show the user the image they've selected.
+
+3. Analysis and Response:
+   - Users input a prompt in the text input field, specifying the type of analysis they want (e.g., "Tell me the total calories").
+   - Upon submission, the app sends the input prompt along with the uploaded image to the Gemini Pro Vision model.
+   - The `get_gemini_response` function fetches the response from the model, which includes:
+     - Total calories of the food items in the image.
+     - Details of each food item with its respective calorie count.
+     - Analysis and comparison of the total calories for health evaluation.
+     - Comments on the healthiness of the food items.
+
+### Features
+
+- Image Upload: Users can upload images of food items for analysis.
+- Gemini Pro Vision Integration: Utilizes the Gemini Pro Vision API for food item analysis.
+- Nutritional Analysis: Provides total calorie count and details for each food item.
+- Health Evaluation: Offers insights and comments on the healthiness of the food based on calorie intake.
+
+### Usage
+
+1. Getting Started:
+   - Ensure the required Python packages (`streamlit`, `PIL`, `google.generativeai`, `dotenv`) are installed.
+   - Set up the `.env` file with the API key for the Gemini Pro Vision API.
+
+2. Running the App:
+   - Execute the script in a Python environment.
+   - Access the Streamlit web interface on the specified local server.
+   - Upload an image of food items and input a prompt to receive the nutritional analysis.
+
+### Example
+
+- User Input: "Tell me the total calories."
+- Uploaded Image: Displays the uploaded image of food items.
+- Generated Response: Provides a detailed analysis including:
+  - Total calories of all food items.
+  - Individual food items with their respective calorie counts.
+  - Analysis on whether the calorie intake is healthy.
+  - Comments on the healthiness of the food items.
+
+The Gemini Health App simplifies the process of analyzing food items from images, providing users with valuable nutritional insights and health evaluations.
